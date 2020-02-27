@@ -12,6 +12,9 @@ Rails.application.routes.draw do
   
   namespace :teachers do
     resource :dashboard, only: :show
+    resource :course do
+        resource:topic 
+    end
   end
 
   namespace :learners do
@@ -19,8 +22,6 @@ Rails.application.routes.draw do
   end
 
   get "pages/welcome"
-
-  resources :courses
 
   root to: 'pages#welcome'
 end

@@ -1,0 +1,20 @@
+<h1><%= @course.title%></h1>
+<%if @course.user_id==current_user.id %>
+<%= link_to "Edit", edit_course_path(@course), :class => 'btn btn-warning'%>
+<%= link_to "Delete", course_path(@course), method: :delete, data: {confirm:"Are you sure?"}, :class => 'btn btn-warning'%>
+<% end %>
+<h2>Topics</h2>
+<% @course.topics.each do |topic| %>
+<div class='well'>
+  <%if @course.user_id==current_user.id %>
+   <a><%= link_to "X", course_topic_path(@post, topic),method: :delete, data: {confirm:"Are you sure?"} %></a><% end %> </p> 
+   <% end %>
+  </div> 
+<%= form_for([@course, @course.topics.build]) do |f|%>
+<p> make topic </p>
+<% = f.text_field(:title,{:class => 'form-control'}) %>
+<br>
+<% = f.text_area(:description,{:class => 'form-control'})%>
+<br>
+<%= f.submit({:class => 'btn btn-success'})%>
+<% end%>
