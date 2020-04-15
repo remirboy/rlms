@@ -4,6 +4,7 @@ class Topic < ApplicationRecord
         "#{topic_slug}"
      end
     belongs_to :course
+    has_many :materials
     validates :title, uniqueness: { scope: :course_id,
     message: "title should be uniq in course" }
     validates :title, presence: true, length: {minimum: 2}

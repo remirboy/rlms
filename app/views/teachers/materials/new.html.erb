@@ -1,0 +1,28 @@
+<h2>New material</h2>
+<% if @material.errors.any?%>
+  <% @material.errors.full_messages.each do |msg| %>
+    <div class='alert alert-danger'><%=msg%></div>
+  <% end %>
+<% end %>
+<%= form_for @material, url:  teachers_course_topic_materials_path do |f|%>
+    <br>
+    <h3>URL to resource</h3>
+    <%= f.text_field :URL,prompt: :translate%>
+    <br>
+    <h3>Content of material</h3>
+    <%= f.text_area :content, size: "60x12", prompt: :translate %>
+    <br>
+    <%= f.label :image %>
+    <%= image_tag f.object.image_url if f.object.cached_image_data %>
+    <%= f.hidden_field :image, value: f.object.cached_image_data %>
+    <%= f.file_field :image %>
+    <%= f.label :PDF %>
+    <%=  f.object.pdf_url if f.object.cached_pdf_data %>
+    <%= f.hidden_field :pdf, value: f.object.cached_pdf_data %>
+    <%= f.file_field :pdf %>
+    <%= f.label :Video %>
+    <%=  f.object.video_url if f.object.cached_video_data %>
+    <%= f.hidden_field :video, value: f.object.cached_video_data %>
+    <%= f.file_field :video %>
+    <%= f.submit "Create" %>
+  <% end %>

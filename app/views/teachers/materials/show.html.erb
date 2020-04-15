@@ -1,0 +1,14 @@
+<h2>Material</h2>
+<b><%=@material.URL %></b>
+<br>
+<%=@material.content %>
+<% if @material.image.present? %>
+    <%=image_tag @material.image_url if @material.image  %>
+<% end %>
+<% if @material.pdf.present? %>
+    <%= link_to "PDF", @material.pdf_url %>
+<% end %>
+<% if @material.video.present? %>
+    <%= link_to "Watch video", @material.video_url %>
+<% end %>
+<%= link_to "Edit", edit_teachers_course_topic_material_path(@material), :class => 'btn btn-warning'%>

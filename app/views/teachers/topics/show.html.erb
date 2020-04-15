@@ -3,3 +3,23 @@
 <br>
 <%=@topic.description %>
 <%= link_to "Edit", edit_teachers_course_topic_path(@topic), :class => 'btn btn-warning'%>
+<br>
+<h1>Materials</h1>
+
+<a><%= link_to "+", new_teachers_course_topic_material_path(@topic.course,@topic), :class => 'btn btn-default' %></a> 
+
+<div class='well'>
+<% @topic.materials.each do |material| %>
+   <br>
+   <b><%=material.URL %></b>
+   <br>
+   <%=material.content %>
+   <%if @topic.course.teacher_id==current_teacher.id %>
+   <a><%= link_to "X", teachers_course_topic_material_path(@topic.course,@topic.topic_slug,material.id),method: :delete, data: {confirm:"Are you sure?"} %></a>
+   
+   <% end %>
+   <a><%= link_to "Open material", teachers_course_topic_material_path(@topic.course,@topic.topic_slug,material.id), :class => 'btn btn-default' %></a> 
+   <% end %>
+   
+  </div> 
+  
