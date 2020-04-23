@@ -7,6 +7,7 @@ gem 'rails'
 gem 'pg'
 gem 'puma'
 gem 'webpacker', '~> 4.0'
+gem 'slug'
 
 # Views
 gem 'active_link_to'
@@ -17,9 +18,14 @@ gem 'slim-rails'
 # All other gems
 gem "devise"
 gem 'bootsnap', '>= 1.4.2', require: false
+gem 'cancancan'
+gem 'draper'
+gem 'pundit'
+gem 'activeadmin'
 
 group :development, :test do
   gem 'byebug'
+  gem 'capybara'
   gem 'rspec-rails'
   gem 'factory_bot_rails'
 end
