@@ -23,7 +23,7 @@ Rails.application.routes.draw do
     resource :dashboard, only: :show
   end
 
-  get "pages/welcome"
+  get 'pages/welcome'
 
   root to: 'pages#welcome'
 end
