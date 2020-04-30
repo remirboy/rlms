@@ -7,6 +7,7 @@ gem 'rails'
 gem 'pg'
 gem 'puma'
 gem 'webpacker', '~> 4.0'
+gem 'slug'
 
 # Views
 gem 'active_link_to'
@@ -16,6 +17,9 @@ gem 'slim-rails'
 
 # All other gems
 gem "devise"
+gem 'rubocop', '~> 0.82.0'
+gem "shrine", "~> 3.0"
+gem 'image_processing', "~> 1.8"
 gem 'bootsnap', '>= 1.4.2', require: false
 
 group :development, :test do

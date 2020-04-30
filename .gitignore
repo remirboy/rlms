@@ -16,7 +16,10 @@
 
 /public/assets
 .byebug_history
-
+.DS_Store
+.env
+.idea
+vendor/bundle
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 
